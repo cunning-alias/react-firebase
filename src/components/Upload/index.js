@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class Landing extends Component {
+class Upload extends Component {
   constructor () {
     super();
     this.state = {
-      file: null
+      file: null,
+      authUser: JSON.parse(localStorage.getItem('authUser')),
     };
   }
 
@@ -20,6 +21,7 @@ class Landing extends Component {
     }).then(response => {
       console.log(response);
       console.log(response.data.Location);
+      console.log('user ' + this.state.authUser.email)
     }).catch(error => {
       console.log('error' + error.message);
     });
@@ -39,4 +41,5 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+
+export default Upload;
